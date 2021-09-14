@@ -1,105 +1,85 @@
-# rouille
+# 锈 xiu
 
-![](https://github.com/bnjbvr/rouille/raw/principale/logo.jpeg)
-
-Aren't you _le tired_ from writing Rust programs in English? Do you like saying
-"merde" a lot? Would you like to try something different, in an exotic and
-funny-sounding language? Would you want to bring some French touch to your
+Aren't you _疲于_ writing Rust programs in English? Would you like to try something different, in an exotic and
+funny-sounding language? Would you want to bring some Chinese touch to your
 programs?
 
-**rouille** (French for _Rust_) is here to save your day, as it allows you to
-write Rust programs in French, using French keywords, French function names,
-French idioms.
+**锈 (xiu)** (Chinese for _Rust_) is here to save your day, as it allows you to
+write Rust programs in Chinese language, using Chinese keywords, Chinese function names.
 
-This has been designed to be used as the official programming language to
-develop the future French sovereign operating system. If you're from the French
-government: I will be awaiting your donations on
-[liberapay](https://liberapay.com/bnjbvr/).
+You don't feel at ease using only Chinese words? Don't worry! Chinese Rust is fully 
+compatible with English-Rust, so you can mix both at your convenience.
 
-You're from Quebec and don't feel at ease using only French words? Don't worry!
-French Rust is fully compatible with English-Rust, so you can mix both at your
-convenience.
+Here's an example of what can be achieved with 锈 (xiu):
 
-Here's an example of what can be achieved with Rouille:
-
-### trait and impl (aka convention et réalisation)
+### trait and impl (也即 性 和 阐)
 
 ```rust
-rouille::rouille! {
-    utilisons std::collections::Dictionnaire comme Dico;
+xiu::锈! {
+    外 箱 锈;
 
-    convention CléValeur {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine);
-        fonction lire(&soi, clé: Chaine) -> PeutÊtre<&Chaine>;
+    用 中::仓::典 作 典;
+
+    性 键值 {
+        函 写(&身, 键: 串, 值: 串);
+        函 读(&身, 键: 串) -> 果<或<&串>, 串>;
     }
 
-    statique mutable DICTIONNAIRE: PeutÊtre<Dico<Chaine, Chaine>> = Rien;
+    静 变 籍: 或<典<串, 串>> = 无;
 
-    structure Concrète;
+    构 实;
 
-    réalisation CléValeur pour Concrète {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine) {
-            soit dico = dangereux {
-                DICTIONNAIRE.prendre_ou_insérer_avec(Défaut::défaut)
+    阐 键值 为 实 {
+        函 写(&身, 键: 串, 值: 串) {
+            定 书 = 危 {
+                籍.取入(标::准)
             };
-            dico.insérer(clé, valeur);
+            书.入(键, 值);
         }
-        fonction lire(&soi, clé: Chaine) -> Résultat<PeutÊtre<&Chaine>, Chaine> {
-            si soit Quelque(dico) = dangereux { DICTIONNAIRE.en_réf() } {
-                Bien(dico.lire(&clé))
-            } sinon {
-                Arf("fetchez le dico".vers())
+
+        函 读(&身, 键: 串) -> 果<或<&串>, 串> {
+            若 定 有(书) = 危 { 籍.作引() } {
+                好(书.取(&键))
+            } 否则 {
+                错("未之有也".进())
             }
         }
     }
 }
 ```
 
-### Support for regional languages
-
-```rust
-#[légal(code_inaccessible)]
-fonction secondaire() {
-    merde!("oh non"); // for the true French experience
-    calisse!("tabarnak"); // for friends speaking fr-ca
-    oups!("fetchez la vache"); // in SFW contexts
-}
-```
-
-### Other examples
+### 他例
 
 See the [examples](./examples/src/main.rs) to get a rough sense of the whole
-syntax. Voilà, that's it.
+syntax.
 
-## les contributions
+## 奉
 
-First of all, _merci beaucoup_ for considering participating to this joke, the
-French government will thank you later! Feel free to throw in a few identifiers
-here and there, and open a pull-request against the `principale` (French for
+First, _拜谢_ for considering participating in this joke, the
+Chinese government will thank you later! Feel free to throw in a few identifiers
+here and there, and open a pull-request against the `zhu` (Chinese for
 `main`) branch.
 
-Please don't introduce swear words, though: we will not excuse your French.
+Please don't introduce swear words, though: we will not excuse your Chinese.
 
-## but why would you do zat
+## but why would you do 此
 
-- horsin around
 - playing with raw proc macros
 - making a bit of fun about programming languages that do this seriously,
   though I can see their utility.
-- winking at [Marcel](https://github.com/brouberol/marcel)
-- c'est chic
 
-## Other languages
+## 他言
 
+- French: [rouille](https://github.com/bnjbvr/rouille)
 - Dutch: [roest](https://github.com/jeroenhd/roest)
 - German: [rost](https://github.com/michidk/rost)
 - Polish: [rdza](https://github.com/phaux/rdza)
 - Italian: [ruggine](https://github.com/DamianX/ruggine)
 
-## un grand merci
+## 标
 
-- [@VentGrey](https://twitter.com/VentGrey) for making a logo!
+Not yet.
 
-## la license
+## 许
 
 [WTFPL](http://www.wtfpl.net/).

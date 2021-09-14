@@ -1,85 +1,78 @@
-rouille::rouille! {
-    externe cagette rouille;
+xiu::锈! {
+    外 箱 锈;
 
-    utilisons std::collections::Dictionnaire comme Dico;
+    用 中::仓::典 作 典;
 
-    convention CléValeur {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine);
-        fonction lire(&soi, clé: Chaine) -> Résultat<PeutÊtre<&Chaine>, Chaine>;
+    性 键值 {
+        函 写(&身, 键: 串, 值: 串);
+        函 读(&身, 键: 串) -> 果<或<&串>, 串>;
     }
 
-    statique mutable DICTIONNAIRE: PeutÊtre<Dico<Chaine, Chaine>> = Rien;
+    静 变 籍: 或<典<串, 串>> = 无;
 
-    structure Concrète;
+    构 实;
 
-    réalisation CléValeur pour Concrète {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine) {
-            soit dico = dangereux {
-                DICTIONNAIRE.prendre_ou_insérer_avec(Défaut::défaut)
+    阐 键值 为 实 {
+        函 写(&身, 键: 串, 值: 串) {
+            定 书 = 危 {
+                籍.取入(标::准)
             };
-            dico.insérer(clé, valeur);
+            书.入(键, 值);
         }
-        fonction lire(&soi, clé: Chaine) -> Résultat<PeutÊtre<&Chaine>, Chaine> {
-            si soit Quelque(dico) = dangereux { DICTIONNAIRE.en_réf() } {
-                Bien(dico.lire(&clé))
-            } sinon {
-                Arf("fetchez le dico".vers())
+
+        函 读(&身, 键: 串) -> 果<或<&串>, 串> {
+            若 定 有(书) = 危 { 籍.作引() } {
+                好(书.取(&键))
+            } 否则 {
+                错("未之有也".进())
             }
         }
     }
 
-    public(cagette) fonction peut_etre(i: u32) -> PeutÊtre<Résultat<u32, Chaine>> {
-        si i % 2 == 1 {
-            si i == 42 {
-                Quelque(Arf(Chaine::depuis("merde")))
-            } sinon {
-                Quelque(Bien(33))
+    公(箱) 函 可能(i: u32) -> 或<果<u32, 串>> {
+        若 i % 2 == 1 {
+            若 i == 42 {
+                有(错(串::从("非也")))
+            } 否则 {
+                有(好(33))
             }
-        } sinon {
-            Rien
+        } 否则 {
+            无
         }
     }
 
-    asynchrone fonction exemple() {
+    另 函 例甲() {
+
     }
 
-    asynchrone fonction exemple2() {
-        exemple().attend;
+    另 函 例乙() {
+        例甲().等;
     }
 
-    fonction principale() {
-        soit mutable x = 31;
+    函 主() {
+        定 变 物 = 31;
 
-        selon x {
+        配 物 {
             42 => {
-                affiche!("omelette du fromage")
+                印!("然")
             }
-            _ => affiche!("voila")
+            _ => 印!("非也")
         }
 
-        pour i de 0..10 {
-            soit val = boucle {
-                arrête i;
+        令 甲 在 0..10 {
+            定 量 = 环 {
+                断 甲;
             };
 
-            tant que x < val {
-                x += 1;
+            当 无或 物 < 量 {
+                物 += 1;
             }
 
-            x = si soit Quelque(resultat) = peut_etre(i) {
-                resultat.déballer()
-            } sinon {
+            物 = 若 定 有(物) = 可能(甲) {
+                物.解()
+            } 否则 {
                 12
             };
         }
-
-        //secondaire();
-    }
-
-    #[légal(code_inaccessible)]
-    fonction secondaire() {
-        merde!("oh non"); // for the true French experience
-        calisse!("tabernacle"); // for friends speaking fr-ca
-        oups!("fetchez la vache"); // in SFW contexts
     }
 }
